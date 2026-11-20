@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Understanding Rotation and Relative Rotation in A-Frame</title>
+    <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+</head>
+<body>
+    <a-scene>
+        <!-- Step 2 + 3: Smaller green panel, rotated 90 degrees around the X-axis.
+             The gray circle is a child, so it inherits the panel's rotation
+             and adds its own 90 degree X rotation on top. -->
+        <a-box color="#689F38"
+               width="4"
+               height="2"
+               depth="0.2"
+               position="0 1 -7"
+               rotation="90 0 0">
+            <a-circle color="#333333"
+                      side="double"
+                      position="2 0 0"
+                      rotation="90 0 0">
+            </a-circle>
+        </a-box>
+
+        <!-- Step 4: Yellow circle outside the box. It does NOT rotate with the box. -->
+        <a-circle color="#FFC107"
+                  side="double"
+                  position="-2 1 -7">
+        </a-circle>
+
+        <!-- Step 5: Rotate the cylinder.
+             90 degrees around Z tilts it; -90 degrees around Y turns it clockwise seen from above. -->
+        <a-cylinder color="#616161"
+                    height="2"
+                    radius="2"
+                    segments-radial="6"
+                    open-ended="true"
+                    side="double"
+                    position="0 1 0"
+                    rotation="0 -90 90">
+        </a-cylinder>
+
+        <!-- Step 6: Use the mouse to look around, W A S D to move,
+             and DevTools to inspect the rotation and position values. -->
+    </a-scene>
+</body>
+</html>

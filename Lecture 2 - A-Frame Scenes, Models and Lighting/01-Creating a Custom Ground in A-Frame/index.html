@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+    <title>Creating a Custom Ground in A-Frame</title>
+</head>
+<body>
+    <a-scene>
+        <!-- Asset Management System
+             Texture: https://polyhaven.com/a/concrete_floor_damaged_01 -->
+        <a-assets>
+            <img id="floor" src="assets/concrete_floor_damaged_01_diff_4k.jpg">
+            <img id="floor-NRM" src="assets/concrete_floor_damaged_01_nor_gl_4k.png">
+        </a-assets>
+
+        <!-- Step 2: A plane for the ground, rotated flat and scaled to 10 x 10 m
+        <a-plane material="color: #CCCCCC" rotation="-90 0 0" scale="10 10 1"></a-plane>
+        -->
+
+        <!-- Step 3: Custom floor texture. repeat: 5 5 tiles the texture across the surface.
+             Step 4: Normal map for realistic lighting depth.
+             Challenge: roughness 0.6 (also tried 0.2 = shinier and 0.8 = more matte). -->
+        <a-plane material="color: #FFFFFF;
+                           src: #floor;
+                           repeat: 5 5;
+                           normal-map: #floor-NRM;
+                           normal-texture-repeat: 5 5;
+                           roughness: 0.6"
+                 rotation="-90 0 0"
+                 scale="10 10 1">
+        </a-plane>
+    </a-scene>
+</body>
+</html>

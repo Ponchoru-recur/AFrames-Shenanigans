@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Positioning Objects in 3D Space with A-Frame</title>
+    <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+</head>
+<body>
+    <a-scene>
+        <!-- Step 2: Transform the green box into a widescreen panel
+             Y = 3 (up from ground level), Z = -7 (forward into the scene).
+             Step 6: try position="0 4 -8" and watch the gray circle move with it. -->
+        <a-box color="#689F38"
+               width="8"
+               height="4.5"
+               depth="0.2"
+               position="0 3 -7">
+            <!-- Step 3: Child circle. Its position is relative to the panel (0 3 -7):
+                 2 m to the right, 11 cm toward the viewer so it does not overlap the box. -->
+            <a-circle color="#333333"
+                      side="double"
+                      position="2 0 0.11">
+            </a-circle>
+        </a-box>
+
+        <!-- Step 4: Yellow circle with absolute positioning (outside the box tag).
+             Z = -6.89 keeps it slightly in front of the panel to avoid z-fighting. -->
+        <a-circle color="#FFC107"
+                  side="double"
+                  position="-2 3 -6.89">
+        </a-circle>
+
+        <!-- Gray cylinder from the setup step -->
+        <a-cylinder color="#616161"
+                    height="2"
+                    radius="2"
+                    segments-radial="6"
+                    open-ended="true"
+                    side="double"
+                    position="0 1 0">
+        </a-cylinder>
+    </a-scene>
+</body>
+</html>

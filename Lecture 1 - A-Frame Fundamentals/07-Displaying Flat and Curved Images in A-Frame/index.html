@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Displaying Flat and Curved Images in A-Frame</title>
+    <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+</head>
+<body>
+    <a-scene>
+        <!-- Step 1: Asset management -->
+        <a-assets>
+            <img id="L09-img-01" src="assets/L09-img-1024x768-flat.jpg">
+            <img id="L09-img-02" src="assets/L09-img-1024x768-curved.jpg">
+            <img id="L09-img-03" src="assets/L09-img-1024x768-curved-layout-R.jpg">
+            <img id="L09-img-04" src="assets/L09-img-1024x768-curved-layout-C.jpg">
+            <img id="L09-img-05" src="assets/L09-img-1024x768-curved-layout-L.jpg">
+        </a-assets>
+
+        <!-- Step 2: Flat image. Keeps the 1024x768 proportions:
+             1024 / 1024 = 1 m wide, 768 / 1024 = 0.75 m high. -->
+        <a-image src="#L09-img-01"
+                 position="0 1.5 -3"
+                 width="1"
+                 height="0.75"
+                 scale="3 3 1">
+        </a-image>
+
+        <!-- Step 3: Curved image (single panel). Radius and height are calculated
+             so the image keeps its shape. -->
+        <a-curvedimage src="#L09-img-02"
+                       theta-length="90"
+                       theta-start="135"
+                       radius="0.707"
+                       height="0.833"
+                       position="0 1.5 0"
+                       scale="3 3 3">
+        </a-curvedimage>
+
+        <!-- Step 4: Width reference box, helps visualize the image and layout width -->
+        <a-box color="#AA0000"
+               opacity="0.5"
+               width="3"
+               height="0.1"
+               depth="3"
+               position="0 1.5 -1.5">
+        </a-box>
+
+        <!-- Step 5: Three-panel curved layout (a semi-circle of images around the user) -->
+        <!-- RIGHT -->
+        <a-curvedimage src="#L09-img-03"
+                       theta-length="50"
+                       theta-start="90"
+                       radius="0.5"
+                       height="0.327"
+                       position="0 1.5 0"
+                       scale="3 3 3">
+        </a-curvedimage>
+
+        <!-- CENTER -->
+        <a-curvedimage src="#L09-img-04"
+                       theta-length="50"
+                       theta-start="155"
+                       radius="0.5"
+                       height="0.327"
+                       position="0 1.5 0"
+                       scale="3 3 3">
+        </a-curvedimage>
+
+        <!-- LEFT -->
+        <a-curvedimage src="#L09-img-05"
+                       theta-length="50"
+                       theta-start="220"
+                       radius="0.5"
+                       height="0.327"
+                       position="0 1.5 0"
+                       scale="3 3 3">
+        </a-curvedimage>
+    </a-scene>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creating 3D Objects with A-Frame Primitives</title>
+    <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+</head>
+<body>
+    <!-- Step 1: Scene container -->
+    <a-scene>
+        <!-- Step 2: Add a box primitive. This creates a green box (like a wall).
+             Without a position it sits at 0 0 0, around the camera's feet, so it is
+             moved 5 m forward to be visible straight away. -->
+        <a-box color="#689F38"
+               width="7"
+               height="2.5"
+               depth="0.5"
+               position="0 1.25 -5">
+        </a-box>
+    </a-scene>
+</body>
+</html>
